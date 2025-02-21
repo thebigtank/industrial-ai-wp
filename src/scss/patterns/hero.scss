@@ -1,3 +1,50 @@
 .pattern.hero {
+  padding: 200px 20px 100px 20px;
+  color: var(--wp--preset--color--background);
+
+  .wp-block-cover__inner-container {
+    .wp-block-columns {
+      &:nth-child(1) {
+        margin-bottom: 4rem;
+
+        .wp-block-heading {
+          text-transform: uppercase;
+
+          &:nth-child(1) {
+            font-size: var(--wp--preset--font-size--medium);
+            font-weight: 400;
+          }
+
+          &:nth-child(2) {
+            font-size: var(--wp--preset--font-size--huge);
+            font-weight: 500;
+            line-height: 1;
+          }
+        }
+
+        p {
+          margin-bottom: 2rem;
+        }
+
+        .wp-block-buttons {
+          .wp-block-button {
+            .wp-element-button {
+              color: var(--wp--preset--color--background);
+              border-color: var(--wp--preset--color--background);
+
+              &:hover {
+                color: var(--wp--preset--color--navy);
+                background-color: var(--wp--preset--color--background);
+              }
+            }
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        padding-right: 2rem;
+      }
+    }
+  }
   
 }
