@@ -28,3 +28,35 @@
 	overflow: visible;
 	white-space: normal;
 }
+
+@mixin wp-block-button-fill() {
+    .wp-element-button {
+        background-color: var(--wp--preset--color--navy);
+        color: var(--wp--preset--color--background);
+        border: 1px solid var(--wp--preset--color--navy);
+        transition: all 0.3s ease-in-out;
+		cursor: pointer;
+
+        &:hover {
+            background-color: transparent;
+            color: var(--wp--preset--color--navy);
+            border: 1px solid var(--wp--preset--color--navy);
+        }
+    }
+}
+
+@mixin wp-block-button-outline() {
+	.wp-element-button {
+		background-color: transparent;
+		color: var(--wp--preset--color--navy);
+		border: 1px solid var(--wp--preset--color--navy);
+		transition: all 0.3s ease-in-out;
+		cursor: pointer;
+
+		&:hover {
+			background-color: var(--wp--preset--color--navy);
+			color: var(--wp--preset--color--background);
+			border: 1px solid var(--wp--preset--color--navy);
+		}
+	}
+}

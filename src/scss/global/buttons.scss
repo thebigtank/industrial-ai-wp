@@ -1,0 +1,13 @@
+.wp-block-buttons {
+    .wp-block-button {
+        @include wp-block-button-fill();
+
+        &.is-style-fill {
+            @include wp-block-button-fill();
+        }
+
+        &.is-style-outline {
+            @include wp-block-button-outline();
+        }
+    }
+}

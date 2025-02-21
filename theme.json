@@ -43,7 +43,7 @@
 			"defaultPalette": false,
 			"palette": [
 				{
-					"color": "#EBEBEB",
+					"color": "#FFFFFF",
 					"name": "Background",
 					"slug": "background"
 				},
@@ -53,7 +53,7 @@
 					"slug": "foreground"
 				},
 				{
-					"color": "#023047",
+					"color": "#15141c",
 					"name": "Navy",
 					"slug": "navy"
 				},
@@ -372,8 +372,8 @@
 				},
 				":hover": {
 					"color": {
-						"background": "var:preset|color|navy",
-						"text": "var:preset|color|background"
+						"background": "var:preset|color|background",
+						"text": "var:preset|color|navy"
 					}
 				},
 				"border": {
@@ -382,7 +382,7 @@
 					"width": "0"
 				},
 				"color": {
-					"background": "var:preset|color|cooper",
+					"background": "var:preset|color|navy",
 					"text": "var:preset|color|background"
 				},
 				"spacing": {
