@@ -120,8 +120,8 @@
 			},
 			"fontFamilies": [
 				{
-					"fontFamily": "Cormorant Garamond, serif",
-					"name": "Cormorant Garamond",
+					"fontFamily": "Fira Sans Condensed, serif",
+					"name": "Fira Sans",
 					"slug": "heading"
 				},
 				{

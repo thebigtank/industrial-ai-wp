@@ -1,6 +1,7 @@
 <?php
 
-class theme {
+class theme
+{
 
     /**
      * Registers custom block styles for the theme.
@@ -20,7 +21,8 @@ class theme {
      * @return void
      * @author BigTank
      */
-    static function block_styles() {
+    static function block_styles()
+    {
         // Add support for block styles.
         add_theme_support('wp-block-styles');
 
@@ -39,7 +41,8 @@ class theme {
      * @return void
      * @author BigTank
      */
-    static function block_stylesheets() {
+    static function block_stylesheets()
+    {
         /**
          * The wp_enqueue_block_style() function allows us to enqueue a stylesheet
          * for a specific block. These will only get loaded when the block is rendered
@@ -74,7 +77,8 @@ class theme {
      * @see https://developer.wordpress.org/reference/functions/register_block_pattern_category/
      * @author BigTank
      */
-    static function pattern_categories() {
+    static function pattern_categories()
+    {
 
         register_block_pattern_category(
             'tank_page',
@@ -99,7 +103,8 @@ class theme {
      * @author BigTank
      * @return void
      */
-    static function block_types() {
+    static function block_types()
+    {
         // Check if the ACF function exists.
         if (function_exists('acf_register_block_type')) {
             // Example block registration.
@@ -120,7 +125,8 @@ class theme {
      * @author BigTank
      * @return array Modified array of block categories with the custom category added.
      */
-    static function block_categories($block_categories, $editor_context) {
+    static function block_categories($block_categories, $editor_context)
+    {
         if (!empty($editor_context->post)) {
             array_unshift(
                 $block_categories,
@@ -146,7 +152,8 @@ class theme {
      * @author BigTank
      * @return string Updated save path for ACF JSON files.
      */
-    static function json_save_folder($path) {
+    static function json_save_folder($path)
+    {
         // Update path.
         $path = get_stylesheet_directory() . '/inc/acf/json/';
 
@@ -166,7 +173,8 @@ class theme {
      * @author BigTank
      * @return array Updated array of load paths for ACF JSON files.
      */
-    static function json_load_folder($paths) {
+    static function json_load_folder($paths)
+    {
         // Remove original path (optional).
         unset($paths[0]);
 
@@ -188,7 +196,8 @@ class theme {
      * @author BigTank
      * @return void
      */
-    static function add_option_page() {
+    static function add_option_page()
+    {
         if (function_exists('acf_add_options_page')) {
             acf_add_options_page(array(
                 'page_title'    => 'Site Options',
@@ -209,10 +218,12 @@ class theme {
      * @return int JPEG quality value (100).
      * @author BigTank
      */
-    static function high_jpg_quality() {
+    static function high_jpg_quality()
+    {
         return 100;
     }
-    static function add_type_attribute($tag, $handle) {
+    static function add_type_attribute($tag, $handle)
+    {
         if (in_array($handle, ['vite-client', 'vite-main'])) {
             return str_replace(' src', ' type="module" src', $tag);
         }
@@ -230,7 +241,8 @@ class theme {
      * @return void
      * @author BigTank
      */
-    static function resources() {
+    static function resources()
+    {
         // Define the dependencies array
         $dependencies = ['wp-blocks', 'wp-element', 'wp-i18n', 'wp-api-fetch'];
 
@@ -245,7 +257,8 @@ class theme {
         }
 
         if (!function_exists('is_vite_dev_server_running')) {
-            function is_vite_dev_server_running() {
+            function is_vite_dev_server_running()
+            {
                 $curl = curl_init(VITE_DEV_SERVER);
                 curl_setopt($curl, CURLOPT_NOBODY, true);
                 curl_setopt($curl, CURLOPT_TIMEOUT, 1);
@@ -290,14 +303,15 @@ class theme {
         // Enqueue the actual Google Fonts stylesheet
         wp_enqueue_style(
             'google-fonts',
-            'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',  // Google Fonts URL
+            'https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',  // Google Fonts URL
             array(),  // Ensure preconnect styles are loaded first
             null,
             'all'
         );
     }
 
-    static function block_support() {
+    static function block_support()
+    {
         // Add support for block styles.
         add_theme_support('wp-block-styles');
 
@@ -315,7 +329,8 @@ class theme {
      * @return void
      * @author BigTank
      */
-    static function supports() {
+    static function supports()
+    {
         add_theme_support('title-tag');
         add_theme_support('post-thumbnails');
     }
@@ -337,7 +352,8 @@ class theme {
      * @return void
      * @author BigTank
      */
-    static function register_nav_menus() {
+    static function register_nav_menus()
+    {
         register_nav_menus(array(
             'action-menu' => __('Action Menu', 'text_domain'),
             'main-menu' => __('Main Menu', 'text_domain'),
@@ -359,7 +375,8 @@ class theme {
      * @return string Modified HTML wrapped in a div with the class "video-wrapper".
      * @author BigTank
      */
-    static function embed_wrapper($html) {
+    static function embed_wrapper($html)
+    {
         return '<div class="video-wrapper">' . $html . '</div>';
     }
 
@@ -376,7 +393,8 @@ class theme {
      * @return string The modified "more" string ('...').
      * @author BigTank
      */
-    static function change_excerpt($more) {
+    static function change_excerpt($more)
+    {
         global $post;
         return '...';
     }
@@ -393,7 +411,8 @@ class theme {
      * @return array The modified array of allowed MIME types with SVG and JSON added.
      * @author BigTank
      */
-    static function mime_types($mimes) {
+    static function mime_types($mimes)
+    {
         $mimes['svg'] = 'image/svg+xml';
         $mimes['json'] = 'text/plain';
         return $mimes;
@@ -409,7 +428,8 @@ class theme {
      * @return void
      * @author BigTank
      */
-    static function add_sidebar() {
+    static function add_sidebar()
+    {
         if (function_exists('register_sidebar')) {
             register_sidebar([
                 'name' => 'Sidebar Widgets',
@@ -423,7 +443,8 @@ class theme {
         }
     }
 
-    static function editor_resources() {
+    static function editor_resources()
+    {
         wp_enqueue_style('gutenberg_styles', get_theme_file_uri('/dist/admin.css'), false, '1.0', 'all');
         wp_enqueue_script('gutenberg_scripts', get_template_directory_uri() . '/dist/app.js', ['wp-blocks', 'wp-element', 'wp-i18n', 'wp-components', 'wp-editor'], '1.0', true);
     }
